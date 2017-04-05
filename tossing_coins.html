@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+		function toss_coins(){
+			var coins=10;
+			var heads=0;
+			var tails=0;
+			for(i=0;i<coins;i++){
+				if(Math.random()<=0.5){
+					heads++;
+				}else{
+					tails++;
+				}
+			}
+			
+			if(heads==8){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+		
+		var repeats=100;
+		var counter=0;
+		for(var i=0;i<=repeats;i++){
+			if(toss_coins()){
+				counter++;
+			}
+		}
+			
+			console.log("Getting 8heads, 2 tails", (counter/repeats)*100,"% of time");
+		</script>
+	</head>
+	
+	<body>
+		
+	</body>
+</html>
+		

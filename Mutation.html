@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script>
+		var bases=['A','G','C','T'];
+		var sequence_len=20;
+		var original_sequence=[];
+		var sequences=[]; //population
+		var num_of_sequences=100;
+		var number_of_generations=100;
+		var mutation_rate=0.0001;
+		
+		function Generate_first_generation(){
+			generate_first_sequence();
+			for(var i=0;i<num_of_sequences;i++)
+			{
+				sequences.push(original_sequence.slice());	//this will create and push copies of original sequence into sequencez.
+			}
+		}
+		
+		function generate_first_sequence(){
+			for(var i=0;i<sequence_len;i++)
+			{
+				original_sequence.push(random_base(""));
+			}
+		}
+		
+		function random_base(current_base){
+			var new_base;
+			do{
+				new_base=bases[Math.floor(Math.random()*4)];
+			}while(new_base==current_base);
+			return new_base;
+		}
+		
+		function print_sequences(str){
+			console.log(str);
+			for(var i=0;i<num_of_sequences;i++)
+			{
+				print_sequence(sequences[i]);
+			}
+		}
+		
+		function print_sequence(sequence){
+			var sequence_str='';
+			for(var j=0;j<sequence_len;j++)
+			{
+				sequence_str=sequence_str+sequence[j];
+			}	
+				console.log(sequence_str);
+		}
+		
+		function run_generations(){
+			for(var i=0;i<number_of_generations;i++)
+			{
+				for(var j=0;j<sequences.length;j++){
+					for(var k=0;k<sequences[j].length;k++){
+						//each base
+						if(Math.random()<mutation_rate){
+								sequences[j][k]=random_base(sequences[j][k]);
+						}
+					}
+					
+				}
+			}
+		}
+		
+		Generate_first_generation();
+		
+		print_sequences("Generation 0");
+		run_generations();
+		print_sequences("After 100 generations");
+		
+	</script>
+	</head>
+	<body>
+	</body>
+</html>

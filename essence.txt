@@ -1,0 +1,77 @@
+
+Infinite population size
+
+No Evolution
+
+Genetic drift(G) - Loss genetic variation(H)
+
+G is the probability of picking two alles of same type.
+
+G1=(1/(2*N))+(1-1/(2*N))*G
+
+Finite Population size(N), Alleles(2*N)
+
+To add mutation to the mix
+
+mu=Probability of an allele mutating per generation.
+
+G1=((1-mu)^2)*(1/(2*N))+(1-1/(2*N))*G
+
+H1=(1-(1/2*N))*H   +   2*mu*(1-H)
+
+selective neutrality of a single allele formed due to mutation
+
+probability of fixation of this single allele is it's frequency=1/2*N
+
+chance effects
+
+Monte-carlo simulation
+
+Number of configurations
+
+to the stage of  genetic drift, all variation would be lost.
+
+Chapter 5: 
+
+While simulating the next generation, previously we have assumed that next generation alleles 
+would be generated randomly. In reality, this is not true and we have a constraint called space which needs to be considered.
+
+F=
+
+Why do heterozygote density decreases eventually?
+Because in the case of both parents being homozygotes, offspring will be homozygote again.. 
+But in the case of heterozygotes, offspring can be homo or heterozygotes.
+
+evolution is simply the change in allele frequencies. Natural selection is just one of the forces affecting these allele frequencies
+
+Math of Natural selection:
+
+		A1A1		A1A2		A2A2
+Fitness w11			w12			w22
+freq(t)	p^2			2*p*q		q^2
+freq(t+1)p^2*w11/u	2*p*q*w12/u	q^2*w22/u
+
+	u=p^2*w11+2*p*q*w12+q^2*w22/u;
+	
+			1		1-h*s		1-s
+Direction,balancing and disruptive
+
+balancing - h<0 - high fitness for heterozygosity.
+
+direction - 0<=h<=1 - 
+
+disruptive - h>1 - 
+
+1-h*s
+
+h-talks about heterozygosity.
+
+Coevolution
+
+
+
+Susceptible		infected	recovered	SIR model
+
+Quantifying outbreaks
+
+small world network

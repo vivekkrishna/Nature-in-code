@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			var p=0.5;
+			var N=100;
+			var simulation=10000;
+			var no_of_fixations=0;
+			var Total_generations=0;
+			function run_next_generation(){
+				var draws=2*N;
+				var a1=0;
+				var a2=0;
+				for(var i=0;i<draws;i++){
+					if(Math.random()<=p){
+						a1++;
+					}else{
+						a2++;
+					}
+				}
+				p=a1/draws;
+				
+			}
+			
+			function run_until_fixation(){
+				p=(1/(2*N)); // introducting a single mutant in the population
+				var generations=0;
+				do{
+					run_next_generation();
+					generations++;
+				}while(p>0 && p<1);
+				if(p==1){
+					Total_generations=Total_generations+generations;
+					no_of_fixations++;
+				}
+			}
+			
+			for(var i=0;i<simulation;i++)
+			{
+				run_until_fixation();
+			}
+			
+			//console.log(no_of_fixations / simulation);	// This has to be nearly equal to P.
+			console.log(Total_generations / no_of_fixations);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
